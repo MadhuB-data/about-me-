@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madhurima Biswas — Data Witch ✨</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1a1130;
+    --bg-soft:#241a3d;
+    --pink:#ff6fb0;
+    --pink-hot:#ff3d9a;
+    --lav:#b18cff;
+    --cyan:#5be3e6;
+    --mint:#8ffbc4;
+    --paper:#fdf3ff;
+    --dim:#c5b6e8;
+    --line:rgba(253,243,255,0.14);
+    --line-strong:rgba(253,243,255,0.3);
+    --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(650px 450px at 8% -5%, rgba(255,111,176,0.25), transparent 60%),
+      radial-gradient(700px 500px at 95% 10%, rgba(91,227,230,0.18), transparent 55%),
+      radial-gradient(900px 600px at 50% 100%, rgba(177,140,255,0.22), transparent 60%),
+      var(--bg);
+    color:var(--paper);
+    font-family:'Poppins',-apple-system,'Segoe UI',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    position:relative;
+  }
+  ::selection{background:var(--pink-hot);color:#fff;}
+  a{color:inherit;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;position:relative;z-index:2;}
+
+  .sparkle{
+    position:fixed;pointer-events:none;z-index:0;font-size:18px;opacity:.55;
+    animation:float 9s ease-in-out infinite;
+    filter:drop-shadow(0 0 6px rgba(255,111,176,.5));
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-26px) rotate(14deg);}
+  }
+
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--mint);
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(143,251,196,0.08);
+    border:1px solid rgba(143,251,196,0.3);
+    padding:5px 14px;border-radius:30px;
+  }
+  h1,h2,h3{font-family:'Fredoka',sans-serif;font-weight:600;margin:0;}
+  .grad-text{
+    background:linear-gradient(92deg,var(--pink-hot),var(--lav) 55%,var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    backdrop-filter:blur(14px);
+    background:rgba(26,17,48,0.55);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--max);margin:0 auto;padding:16px 40px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .nav-logo{font-family:'Fredoka';font-weight:600;font-size:18px;}
+  .nav-logo span{color:var(--pink);}
+  .nav-links{display:flex;gap:26px;list-style:none;margin:0;padding:0;}
+  .nav-links a{
+    font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;
+    letter-spacing:0.06em;text-decoration:none;color:var(--dim);
+    transition:color .2s ease;
+  }
+  .nav-links a:hover{color:var(--pink);}
+
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    padding-top:90px;position:relative;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
+  .hero h1{font-size:clamp(42px,6vw,74px);line-height:1.04;margin-top:20px;}
+  .hero .lede{max-width:48ch;margin-top:20px;color:var(--dim);font-size:17.5px;}
+  .badge-row{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;}
+  .pill{
+    font-family:'Space Mono',monospace;font-size:12px;color:var(--paper);
+    border:1px solid var(--line-strong);background:rgba(253,243,255,0.05);
+    padding:7px 14px;border-radius:30px;
+  }
+  .pill b{color:var(--cyan);}
+
+  .terminal{
+    background:linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border:1px solid var(--line-strong);
+    border-radius:20px;padding:0;overflow:hidden;
+    box-shadow:0 30px 70px -20px rgba(255,61,154,0.35), 0 0 0 1px rgba(255,255,255,0.03);
+  }
+  .term-bar{
+    display:flex;gap:7px;align-items:center;
+    padding:14px 16px;border-bottom:1px solid var(--line);
+    background:rgba(255,255,255,0.03);
+  }
+  .term-dot{width:10px;height:10px;border-radius:50%;}
+  .term-bar .term-dot:nth-child(1){background:var(--pink-hot);}
+  .term-bar .term-dot:nth-child(2){background:#ffd66b;}
+  .term-bar .term-dot:nth-child(3){background:var(--mint);}
+  .term-title{margin-left:auto;font-family:'Space Mono',monospace;font-size:11px;color:var(--dim);}
+  .term-body{padding:24px 22px;font-family:'Space Mono',monospace;font-size:13.5px;color:var(--mint);}
+  .term-body .l{margin-bottom:10px;color:var(--dim);}
+  .term-body .l .prompt{color:var(--pink);margin-right:8px;}
+  .term-body .out{color:var(--paper);}
+  .cursor-blink{display:inline-block;width:8px;height:14px;background:var(--cyan);margin-left:3px;animation:blink 1s step-start infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  section{padding:120px 0;position:relative;}
+  .sec-head{margin-bottom:56px;max-width:640px;}
+  .sec-head h2{font-size:clamp(30px,3.6vw,44px);margin-top:14px;}
+  .sec-head p{color:var(--dim);margin-top:14px;font-size:15.5px;}
+  .divider{
+    height:1px;max-width:var(--max);margin:0 auto;
+    background:linear-gradient(90deg, transparent, var(--line-strong), transparent);
+  }
+
+  .journey-track{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .stop{
+    position:relative;background:rgba(255,255,255,0.04);
+    border:1px solid var(--line);border-radius:18px;padding:26px 24px;
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .stop:hover{transform:translateY(-6px) rotate(-0.5deg);border-color:var(--pink);box-shadow:0 20px 40px -18px rgba(255,111,176,0.4);}
+  .stop-emoji{font-size:26px;}
+  .stop-year{font-family:'Space Mono',monospace;font-size:12px;color:var(--pink);margin-top:14px;letter-spacing:0.05em;}
+  .stop h3{font-size:21px;margin-top:8px;}
+  .stop-loc{font-family:'Space Mono',monospace;font-size:11.5px;color:var(--dim);margin-top:4px;}
+  .stop p.desc{margin-top:14px;color:var(--dim);font-size:14px;}
+
+  .exp-card{
+    display:grid;grid-template-columns:170px 1fr;gap:34px;
+    padding:30px 26px;margin-bottom:20px;border-radius:18px;
+    background:rgba(255,255,255,0.035);border:1px solid var(--line);
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .exp-card:hover{border-color:var(--lav);transform:translateX(4px);}
+  .exp-when{font-family:'Space Mono',monospace;font-size:12.5px;color:var(--cyan);}
+  .exp-role{font-size:22px;margin-top:6px;font-family:'Fredoka';}
+  .exp-org{
+    font-family:'Space Mono',monospace;font-size:12px;color:var(--dim);
+    margin-top:6px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;
+  }
+  .exp-tag{border:1px solid var(--line-strong);border-radius:20px;padding:2px 10px;font-size:10.5px;color:var(--mint);}
+  .exp-body ul{margin:18px 0 0;padding-left:20px;color:var(--dim);font-size:14.5px;}
+  .exp-body li{margin-bottom:10px;}
+  .exp-body li b{color:var(--paper);font-weight:600;}
+  .exp-body li::marker{color:var(--pink);}
+
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .proj-card{
+    border-radius:20px;padding:28px 24px;
+    background:linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015));
+    border:1px solid var(--line);
+    display:flex;flex-direction:column;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .proj-card:hover{transform:translateY(-8px) rotate(0.6deg);box-shadow:0 25px 50px -20px rgba(91,227,230,0.35);}
+  .proj-emoji{font-size:28px;}
+  .proj-card h3{font-size:19px;margin-top:14px;font-family:'Fredoka';}
+  .proj-card p{color:var(--dim);font-size:13.8px;margin-top:12px;flex:1;}
+  .proj-stack{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px;}
+  .proj-stack span{
+    font-family:'Space Mono',monospace;font-size:10.5px;color:var(--bg);
+    background:var(--mint);padding:3px 9px;border-radius:20px;font-weight:700;
+  }
+
+  .skill-board{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .skill-cell{
+    background:rgba(255,255,255,0.035);border:1px solid var(--line);
+    border-radius:18px;padding:26px 28px;
+  }
+  .skill-cell h4{
+    font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--pink);margin:0 0 14px;
+  }
+  .skill-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .skill-tags span{
+    font-size:13px;color:var(--paper);background:rgba(255,255,255,0.06);
+    border:1px solid var(--line-strong);padding:6px 13px;border-radius:20px;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .skill-tags span:hover{background:var(--lav);color:var(--bg);border-color:var(--lav);}
+
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .edu-card{border-radius:18px;padding:26px;background:rgba(255,255,255,0.035);border:1px solid var(--line);}
+  .edu-card h3{font-size:19px;margin-top:10px;font-family:'Fredoka';}
+  .edu-card .edu-sub{font-family:'Space Mono',monospace;font-size:12px;color:var(--dim);margin-top:6px;}
+  .research-list{margin-top:44px;}
+  .research-item{
+    padding:22px 24px;margin-bottom:14px;border-radius:16px;
+    background:rgba(255,255,255,0.03);border:1px solid var(--line);
+  }
+  .research-item h4{font-size:16px;font-family:'Fredoka';font-weight:600;margin:0;}
+  .research-item .r-meta{font-family:'Space Mono',monospace;font-size:11px;color:var(--cyan);margin-top:8px;}
+  .research-item p{color:var(--dim);font-size:13.8px;margin-top:10px;}
+
+  .contact-card{
+    border-radius:26px;padding:60px 50px;
+    background:linear-gradient(135deg, rgba(255,111,176,0.14), rgba(177,140,255,0.1) 50%, rgba(91,227,230,0.1));
+    border:1px solid var(--line-strong);
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;align-items:center;
+  }
+  .contact-card h2{font-size:clamp(30px,4vw,46px);}
+  .contact-row{
+    display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);
+    font-family:'Space Mono',monospace;font-size:13px;
+  }
+  .contact-row:last-child{border-bottom:1px solid var(--line);}
+  .contact-row span:first-child{color:var(--dim);}
+  footer{padding:40px 0 60px;text-align:center;font-family:'Space Mono',monospace;font-size:11.5px;color:var(--dim);}
+
+  [data-reveal]{transition:opacity .6s ease, transform .6s ease;}
+  .js-ready [data-reveal]{opacity:0;transform:translateY(18px);}
+  .js-ready [data-reveal].in{opacity:1;transform:translateY(0);}
+
+  @media (max-width:880px){
+    .nav-links{display:none;}
+    .wrap{padding:0 22px;}
+    .hero-grid{grid-template-columns:1fr;gap:36px;}
+    .journey-track{grid-template-columns:1fr;}
+    .exp-card{grid-template-columns:1fr;gap:10px;}
+    .proj-grid{grid-template-columns:1fr;}
+    .skill-board{grid-template-columns:1fr;}
+    .edu-grid{grid-template-columns:1fr;}
+    .contact-card{grid-template-columns:1fr;padding:40px 26px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">MB<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="sparkles"></div>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">✨ data scientist &amp; part-time chaos wrangler</div>
+        <h1>Hi, I'm Madhurima<br><span class="grad-text">and I make data behave.</span> 💅</h1>
+        <p class="lede">Math nerd turned analyst turned AI tinkerer. I take messy spreadsheets, chaotic claims data, and unlabeled images and turn them into things that actually make sense — with a little sparkle on top.</p>
+        <div class="badge-row">
+          <div class="pill">📍 <b>Copenhagen,</b> Denmark</div>
+          <div class="pill">🌍 lived in <b>India · USA · Denmark</b></div>
+          <div class="pill">✅ <b>no visa sponsorship</b> needed</div>
+        </div>
+      </div>
+      <div class="terminal">
+        <div class="term-bar">
+          <div class="term-dot"></div><div class="term-dot"></div><div class="term-dot"></div>
+          <div class="term-title">madhu.py</div>
+        </div>
+        <div class="term-body">
+          <div class="l"><span class="prompt">&gt;&gt;&gt;</span>import madhurima as mb</div>
+          <div class="l"><span class="prompt">&gt;&gt;&gt;</span>mb.skills</div>
+          <div class="out l">['python', 'sql', 'power_bi', 'pytorch', 'chaotic_good_energy']</div>
+          <div class="l"><span class="prompt">&gt;&gt;&gt;</span>mb.status</div>
+          <div class="out l">'building cool AI things in Copenhagen 🇩🇰'</div>
+          <div class="l"><span class="prompt">&gt;&gt;&gt;</span>print(mb.hire_me())<span class="cursor-blink"></span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="divider"></div>
+
+  <section id="journey">
+    <div class="sec-head" data-reveal>
+      <div class="eyebrow">🗺️ the origin story</div>
+      <h2>Three cities, one glow-up.</h2>
+      <p>Math girlie in Kolkata → analytics grind in the US → AI era in Copenhagen. Character development, basically.</p>
+    </div>
+    <div class="journey-track">
+      <div class="stop" data-reveal>
+        <div class="stop-emoji">📐</div>
+        <div class="stop-year">2016 — 2019</div>
+        <h3>Kolkata, India</h3>
+        <div class="stop-loc">Presidency University</div>
+        <p class="desc">BSc in Mathematics. Learned to love proofs, spreadsheets before spreadsheets were cool, and the phrase "let x equal..."</p>
+      </div>
+      <div class="stop" data-reveal>
+        <div class="stop-emoji">📊</div>
+        <div class="stop-year">2021 — 2025</div>
+        <h3>Michigan &amp; Iowa, USA</h3>
+        <div class="stop-loc">WMU · Principal Financial · Cigna Healthcare</div>
+        <p class="desc">MSc in Data Science, then four years turning theory into dashboards, forecasts, and models that people actually used.</p>
+      </div>
+      <div class="stop" data-reveal>
+        <div class="stop-emoji">🤖</div>
+        <div class="stop-year">2026 — present</div>
+        <h3>Copenhagen, Denmark</h3>
+        <div class="stop-loc">Independent · AI portfolio</div>
+        <p class="desc">Moved cities, rebuilt on my own terms, and started shipping AI side projects for fun (and to impress future clients).</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="experience">
+    <div class="sec-head" data-reveal>
+      <div class="eyebrow">💼 the receipts</div>
+      <h2>Experience</h2>
+    </div>
+
+    <div class="exp-card" data-reveal>
+      <div class="exp-when">02/2023 — 03/2025</div>
+      <div class="exp-body">
+        <div class="exp-role">Senior Data Analyst</div>
+        <div class="exp-org">Cigna Healthcare, Michigan, USA <span class="exp-tag">70K+ employees</span><span class="exp-tag">30+ countries</span></div>
+        <ul>
+          <li>Built ML forecasting models in Python with <b>TensorFlow, PyTorch and Keras</b> to predict clinical demand and patient risk, turning "uh oh" into "we saw this coming" across 30+ countries.</li>
+          <li>Delivered <b>Power BI and Tableau</b> dashboards translating clinical chaos into SQL data models execs could actually read at a glance.</li>
+          <li>Wrangled <b>Azure Data Factory and SQL</b> pipelines across time zones so reporting stayed audit-ready, not audit-scary.</li>
+          <li>Set up data quality and anomaly checks that kept everything <b>HIPAA-compliant</b> and traceable, no drama.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-card" data-reveal>
+      <div class="exp-when">02/2022 — 12/2022</div>
+      <div class="exp-body">
+        <div class="exp-role">Business Analyst</div>
+        <div class="exp-org">Principal Financial, Iowa, USA <span class="exp-tag">18K+ employees</span><span class="exp-tag">80+ countries</span></div>
+        <ul>
+          <li>Merged seven chaotic source systems into one clean dataset with <b>SQL and SSIS</b>, catching anomalies 40% faster.</li>
+          <li>Automated financial dashboards with <b>Excel and VBA</b>, cutting a two-day report grind down to two hours.</li>
+          <li>Ran <b>A/B tests and statistical modelling</b> that trimmed cost overruns by 15% without missing a single deadline.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-card" data-reveal>
+      <div class="exp-when">04/2022 — 12/2022</div>
+      <div class="exp-body">
+        <div class="exp-role">Data Science Intern</div>
+        <div class="exp-org">Resillience, Inc., Florida, USA <span class="exp-tag">200+ schools</span></div>
+        <ul>
+          <li>Automated the whole analysis pipeline in <b>R</b>, cutting turnaround time in half across 200+ schools.</li>
+          <li>Built <b>R Shiny and Python Flask</b> dashboards giving program leads live visibility instead of stale monthly PDFs.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="projects">
+    <div class="sec-head" data-reveal>
+      <div class="eyebrow">🚀 side quests</div>
+      <h2>Since Copenhagen</h2>
+      <p>What I've been building for fun (and future clients) while settling into Denmark.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card" data-reveal>
+        <div class="proj-emoji">👀</div>
+        <h3>Face Recognition System</h3>
+        <p>A computer vision pipeline that detects and identifies faces in images and video, because notebooks alone weren't cutting it.</p>
+        <div class="proj-stack"><span>Python</span><span>OpenCV</span><span>CV</span></div>
+      </div>
+      <div class="proj-card" data-reveal>
+        <div class="proj-emoji">🧹</div>
+        <h3>Data Cleaning &amp; Report Agent</h3>
+        <p>An agent that eats messy raw data, cleans it up, and hands back a tidy report — basically a Roomba for spreadsheets.</p>
+        <div class="proj-stack"><span>Python</span><span>Agents</span><span>Automation</span></div>
+      </div>
+      <div class="proj-card" data-reveal>
+        <div class="proj-emoji">📈</div>
+        <h3>React BI Dashboard</h3>
+        <p>A custom, web-native BI dashboard bringing years of Power BI and Tableau instincts into a front end I actually own.</p>
+        <div class="proj-stack"><span>React</span><span>Data Viz</span><span>BI</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="skills">
+    <div class="sec-head" data-reveal>
+      <div class="eyebrow">🧠 the toolkit</div>
+      <h2>Skills</h2>
+    </div>
+    <div class="skill-board" data-reveal>
+      <div class="skill-cell">
+        <h4>Languages &amp; ML</h4>
+        <div class="skill-tags">
+          <span>Python</span><span>R</span><span>SQL</span><span>SAS EM</span>
+          <span>TensorFlow</span><span>PyTorch</span><span>Keras</span><span>Java</span><span>C#</span><span>HTML</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <h4>Visualization &amp; BI</h4>
+        <div class="skill-tags">
+          <span>Power BI</span><span>Tableau</span><span>Advanced Excel</span><span>MS Office</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <h4>Data &amp; Cloud</h4>
+        <div class="skill-tags">
+          <span>MS Azure</span><span>Azure Data Factory</span><span>HDFS</span><span>Hadoop</span>
+          <span>MapReduce</span><span>Kafka</span><span>Cassandra</span><span>MS Access</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <h4>Analysis &amp; Delivery</h4>
+        <div class="skill-tags">
+          <span>Cost &amp; Benefit Analysis</span><span>Impact Analysis</span><span>GAP Analysis</span>
+          <span>Risk Analysis</span><span>SWOT</span><span>Jira</span><span>Confluence</span><span>MS Project</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="education">
+    <div class="sec-head" data-reveal>
+      <div class="eyebrow">🎓 the foundation</div>
+      <h2>Education &amp; research</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card" data-reveal>
+        <div class="stop-year">2021 — 2022</div>
+        <h3>MSc, Data Science</h3>
+        <div class="edu-sub">Western Michigan University, USA</div>
+      </div>
+      <div class="edu-card" data-reveal>
+        <div class="stop-year">2016 — 2019</div>
+        <h3>BSc, Mathematics</h3>
+        <div class="edu-sub">Presidency University, Kolkata, India</div>
+      </div>
+    </div>
+
+    <div class="research-list">
+      <div class="research-item" data-reveal>
+        <h4>Augmented reality development with Microsoft HoloLens</h4>
+        <div class="r-meta">06/2023 — 12/2023 · Advisor: Gyan Yue Hong, Dept. of Computer Science, WMU</div>
+        <p>Built immersive AR apps in Unity and C# for HoloLens, with deep learning baked in for medical image analysis to help train paramedics.</p>
+      </div>
+      <div class="research-item" data-reveal>
+        <h4>Cryptocurrency price prediction (Master's research)</h4>
+        <div class="r-meta">01/2022 — 04/2022 · Advisor: Dr. Hyun Bin Kang, Dept. of Statistics, WMU</div>
+        <p>Combined LightGBM, LSTM, XGBoost and SVM with heavy preprocessing to squeeze out better forecasting accuracy.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="contact">
+    <div class="contact-card" data-reveal>
+      <div>
+        <div class="eyebrow">💌 say hi</div>
+        <h2>Let's make your<br><span class="grad-text">data cute AND useful.</span></h2>
+        <p class="lede" style="margin-top:16px;">Open to freelance, contract, and full-time analytics or applied AI roles around Copenhagen. No visa sponsorship needed — just good coffee and interesting data.</p>
+      </div>
+      <div class="contact-list">
+        <div class="contact-row"><span>Email</span><span>biswas_madhurima@yahoo.com</span></div>
+        <div class="contact-row"><span>Phone</span><span>+45 91 45 95 88</span></div>
+        <div class="contact-row"><span>Location</span><span>Copenhagen, Denmark</span></div>
+        <div class="contact-row"><span>Vibe</span><span>chaotic good, on time</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>made with 🩷, python, and mild caffeine dependency · Madhurima Biswas, 2026</footer>
+</div>
+
+<script>
+  document.documentElement.classList.add('js-ready');
+  const items = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.1, rootMargin:'0px 0px -60px 0px'});
+  items.forEach(i=>io.observe(i));
+
+  const emojis = ['✨','💫','🩷','⭐','💻'];
+  const container = document.querySelector('.sparkles');
+  for(let i=0;i<16;i++){
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    s.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    s.style.left = Math.random()*100 + 'vw';
+    s.style.top = Math.random()*100 + 'vh';
+    s.style.animationDuration = (7+Math.random()*6)+'s';
+    s.style.animationDelay = (Math.random()*5)+'s';
+    s.style.fontSize = (14+Math.random()*14)+'px';
+    container.appendChild(s);
+  }
+</script>
+
+</body>
+</html>
